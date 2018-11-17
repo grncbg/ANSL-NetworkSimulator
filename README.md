@@ -26,9 +26,7 @@ start
 
 repeat
 
-    while (Queueの先頭の時刻が現在時刻と等しい)
-        :dequeue;
-    endwhile
+    :multisetから現在の時刻のものを削除;
 
     while (発生源の数だけループ)
 
