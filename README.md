@@ -26,6 +26,7 @@ start
 
 repeat
 
+    :合計にmultisetのサイズを加算;
     :multisetから現在の時刻のものを削除;
 
     while (発生源の数だけループ)
@@ -34,7 +35,7 @@ repeat
         while(n個のループ)
             if (Queueのサイズが制限内) then (true)
                 :継続時間を指数分布で設定;
-                :enqueue;
+                :insert(現在時刻+継続時間);
             else (false)
                 :呼損;
             endif
