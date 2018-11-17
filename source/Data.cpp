@@ -6,7 +6,7 @@ Data::Data(int time) {
 
 }
 
-bool Data::operator<(Data& data) {
+bool Data::operator<(const Data& data) const {
 
     return this->time < data.time;
 

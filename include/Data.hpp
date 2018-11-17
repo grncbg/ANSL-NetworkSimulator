@@ -9,7 +9,7 @@ private:
 public:
     Data(int);
 
-    bool operator<(Data&);
+    bool operator<(const Data&) const;
 
 };
 
