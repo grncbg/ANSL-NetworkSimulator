@@ -38,6 +38,7 @@ class Random {
     std::exponential_distribution<double>* exponential;
 
     Random(int poisson_arg, double exp_arg);
+    ~Random();
 
 };
 
