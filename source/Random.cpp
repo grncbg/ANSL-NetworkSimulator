@@ -46,3 +46,9 @@ Exponential::Exponential(double arg) {
     this->exponential = new std::exponential_distribution<double>(arg);
 
 }
+
+Exponential::~Exponential() {
+
+    delete(this->exponential);
+
+}
