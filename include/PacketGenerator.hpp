@@ -32,7 +32,7 @@ public:
     PacketGenerator(int);
     ~PacketGenerator();
 
-    static VECTOR_FWD(Data)&& get(int);
+    VECTOR_FWD(Data)&& get(int);
 
 };
 
