@@ -50,6 +50,11 @@ class Poisson : public Random {
 private:
     std::poisson_distribution<int>* poisson;
 
+// public functions
+public:
+    Poisson(int);
+    ~Poisson();
+
 };
 
 class Exponential : public Random {
