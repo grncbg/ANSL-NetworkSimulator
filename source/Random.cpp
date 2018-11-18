@@ -29,3 +29,9 @@ Poisson::Poisson(int arg) {
     this->poisson = new std::poisson_distribution<int>(arg);
 
 }
+
+Poisson::~Poisson() {
+
+    delete(this->poisson);
+
+}
