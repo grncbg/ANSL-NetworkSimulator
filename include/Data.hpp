@@ -8,6 +8,7 @@ private:
 
 public:
     Data(int);
+    void set(int);
 
     bool operator<(const Data&) const;
 
