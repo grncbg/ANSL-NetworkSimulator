@@ -31,6 +31,7 @@ namespace std {
 
 }
 
+template <class T>
 class Random {
 
 // protected members
@@ -44,7 +45,7 @@ public:
 
 };
 
-class Poisson : public Random {
+class Poisson : public Random<int> {
 
 // private members
 private:
@@ -57,7 +58,7 @@ public:
 
 };
 
-class Exponential : public Random {
+class Exponential : public Random<double> {
 
 // private members
 private:
