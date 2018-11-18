@@ -33,28 +33,30 @@ namespace std {
 
 class Random {
 
-// private members
+// protected members
 private:
     const std::mt19937_64* engine;
-    std::poisson_distribution<int>* poisson;
-    std::exponential_distribution<double>* exponential;
 
 // public functions
 public:
-    Random(const int, const double);
+    Random();
     ~Random();
 
 };
 
 class Poisson : public Random {
 
-
+// private members
+private:
+    std::poisson_distribution<int>* poisson;
 
 };
 
 class Exponential : public Random {
 
-
+// private members
+private:
+    std::exponential_distribution<double>* exponential;
 
 };
 
