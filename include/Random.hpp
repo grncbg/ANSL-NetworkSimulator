@@ -39,7 +39,7 @@ class Random {
 
 // protected members
 protected:
-    const std::mt19937_64* engine;
+    std::mt19937_64* engine;
 
 // public functions
 public:
