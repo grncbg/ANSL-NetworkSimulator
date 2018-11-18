@@ -23,8 +23,7 @@ class Random;
 //
 class PacketGenerator {
 
-    template <class T>
-    static std::vector<Data>&& get(int, Random<T>);
+    static std::vector<Data>&& get(int, Random<int>);
 
 };
 
