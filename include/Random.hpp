@@ -66,7 +66,7 @@ public:
     Poisson(double);
     ~Poisson();
 
-    int get() const;
+    int get() const override;
 
 };
 
@@ -85,7 +85,7 @@ public:
     Exponential(double);
     ~Exponential();
 
-    double get() const;
+    double get() const override;
 
 };
 
