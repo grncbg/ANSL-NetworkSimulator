@@ -1,6 +1,7 @@
 #ifndef INCLUDED_RANDOM_HPP
 #define INCLUDED_RANDOM_HPP
 
+// dorward declaration
 namespace std {
 
     typedef __SIZE_TYPE__ size_t;
