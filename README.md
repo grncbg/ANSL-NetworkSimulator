@@ -59,3 +59,4 @@ stop
 
 - [ポワソン分布](https://cpprefjp.github.io/reference/random/poisson_distribution.html)
 - [指数分布](https://cpprefjp.github.io/reference/random/exponential_distribution.html)
+- [待ち行列全般](http://www.kogures.com/hitoshi/webtext/or-que-mm1n/index.html)
