@@ -2,12 +2,12 @@
 
 Data::Data(int time) {
 
-    this->time = time;
+    this->end_time = time;
 
 }
 
 bool Data::operator<(const Data& data) const {
 
-    return this->time < data.time;
+    return this->end_time < data.end_time;
 
 }

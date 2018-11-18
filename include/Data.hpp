@@ -4,7 +4,7 @@
 class Data {
 
 private:
-    int time;
+    int end_time;
 
 public:
     Data(int);
