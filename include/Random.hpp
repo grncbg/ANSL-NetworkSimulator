@@ -43,6 +43,8 @@ public:
     Random();
     ~Random();
 
+    virtual T get() = 0;
+
 };
 
 class Poisson : public Random<int> {
