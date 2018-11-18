@@ -41,7 +41,7 @@ private:
 
 // public functions
 public:
-    Random(int, double);
+    Random(const int, const double);
     ~Random();
 
 };

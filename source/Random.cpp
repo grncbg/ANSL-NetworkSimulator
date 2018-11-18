@@ -2,7 +2,7 @@
 
 #include <random>
 
-Random::Random(int poisson_arg = 0, double exp_arg = 0.0) {
+Random::Random(const int poisson_arg = 0, const double exp_arg = 0.0) {
 
     std::random_device seed_gen;
     this->engine = new std::mt19937_64(seed_gen());
