@@ -23,6 +23,8 @@ class Random;
 //
 class PacketGenerator {
 
+public:
+
     static std::vector<Data>&& get(int);
 
 };
