@@ -35,3 +35,14 @@ Poisson::~Poisson() {
     delete(this->poisson);
 
 }
+
+
+//
+// class Exponential
+//
+
+Exponential::Exponential(double arg) {
+
+    this->exponential = new std::exponential_distribution<double>(arg);
+
+}
