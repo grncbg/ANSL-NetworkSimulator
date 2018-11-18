@@ -25,12 +25,17 @@ namespace std {
     template <class IntType>
     class poisson_distribution;
 
+    // exponential_distribution
+    template <class RealType>
+    class exponential_distribution;
+
 }
 
 class Random {
 
     std::mt19937_64* engine;
     std::poisson_distribution<int>* poisson;
+    std::exponential_distribution<double>* exponential;
 
 };
 
