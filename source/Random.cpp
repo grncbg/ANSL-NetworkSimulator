@@ -10,3 +10,11 @@ Random::Random(int poisson_arg = 0, double exp_arg = 0.0) {
     this->exponential = new std::exponential_distribution<double>(exp_arg);
 
 }
+
+Random::~Random() {
+
+    delete(this->engine);
+    delete(this->poisson);
+    delete(this->exponential);
+
+}
