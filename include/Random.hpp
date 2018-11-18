@@ -63,6 +63,11 @@ class Exponential : public Random {
 private:
     std::exponential_distribution<double>* exponential;
 
+// public functions
+public:
+    Exponential(double);
+    ~Exponential();
+
 };
 
 #endif
