@@ -53,7 +53,7 @@ private:
 
 // public functions
 public:
-    Poisson(int);
+    Poisson(double);
     ~Poisson();
 
 };

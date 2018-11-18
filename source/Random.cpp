@@ -26,7 +26,7 @@ Random<T>::~Random() {
 // class Poison
 //
 
-Poisson::Poisson(int arg) {
+Poisson::Poisson(double arg) {
 
     this->poisson = new std::poisson_distribution<int>(arg);
 
