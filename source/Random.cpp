@@ -2,6 +2,10 @@
 
 #include <random>
 
+//
+// class Random
+//
+
 Random::Random() {
 
     std::random_device seed_gen;
@@ -12,5 +16,16 @@ Random::Random() {
 Random::~Random() {
 
     delete(this->engine);
+
+}
+
+
+//
+// class Poison
+//
+
+Poisson::Poisson(int arg) {
+
+    this->poisson = new std::poisson_distribution<int>(arg);
 
 }
