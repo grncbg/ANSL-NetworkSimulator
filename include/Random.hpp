@@ -84,6 +84,8 @@ public:
     Exponential(double);
     ~Exponential();
 
+    double get() const;
+
 };
 
 #endif

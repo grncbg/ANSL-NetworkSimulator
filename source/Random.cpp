@@ -60,3 +60,9 @@ Exponential::~Exponential() {
     delete(this->exponential);
 
 }
+
+double Exponential::get() const {
+
+    return (*exponential)(*engine);
+
+}
