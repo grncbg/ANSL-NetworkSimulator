@@ -33,9 +33,11 @@ namespace std {
 
 class Random {
 
-    std::mt19937_64* engine;
+    const std::mt19937_64* engine;
     std::poisson_distribution<int>* poisson;
     std::exponential_distribution<double>* exponential;
+
+    Random(int poisson_arg, double exp_arg);
 
 };
 
