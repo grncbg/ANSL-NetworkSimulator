@@ -65,6 +65,8 @@ public:
     Poisson(double);
     ~Poisson();
 
+    int get() const;
+
 };
 
 

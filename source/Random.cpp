@@ -38,6 +38,12 @@ Poisson::~Poisson() {
 
 }
 
+int Poisson::get() const {
+
+    return (*poisson)(*engine);
+
+}
+
 
 //
 // class Exponential
