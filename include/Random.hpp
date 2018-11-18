@@ -34,7 +34,7 @@ namespace std {
 class Random {
 
 // protected members
-private:
+protected:
     const std::mt19937_64* engine;
 
 // public functions
