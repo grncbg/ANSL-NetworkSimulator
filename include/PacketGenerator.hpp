@@ -1,13 +1,15 @@
 #ifndef INCLUDED_PACKET_GENERATOR_HPP
 #define INCLUDED_PACKET_GENERATOR_HPP
 
+#define VECTOR_FWD(x_type)  std::vector<x_type, std::allocator<x_type> >
+
 // dorward declaration
 namespace std {
 
     // vector
     template <class T>
     class allocator;
-    template <class T, class Allocator = allocator<T>>
+    template <class T, class Allocator>
     class vector;
 
 }
@@ -21,11 +23,15 @@ class Random;
 //
 // class PacketGenerator
 //
+template <class T>
 class PacketGenerator {
 
-public:
+    Random<T>* random;
 
-    static std::vector<Data>&& get(int);
+public:
+    PacketGenerator(int);
+
+    static VECTOR_FWD(Data)&& get(int);
 
 };
 
