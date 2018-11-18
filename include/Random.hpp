@@ -46,4 +46,16 @@ public:
 
 };
 
+class Poisson : public Random {
+
+
+
+};
+
+class Exponential : public Random {
+
+
+
+};
+
 #endif
