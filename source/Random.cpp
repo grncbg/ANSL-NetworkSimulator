@@ -21,6 +21,12 @@ Random<T>::~Random() {
 
 }
 
+template <class T>
+T Random<T>::operator()() const {
+
+    return get();
+
+}
 
 //
 // class Poison

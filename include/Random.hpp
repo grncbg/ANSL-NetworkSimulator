@@ -47,6 +47,7 @@ public:
     ~Random();
 
     virtual T get() const = 0;
+    virtual T operator()() const final;
 
 };
 
