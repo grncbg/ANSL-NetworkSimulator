@@ -44,7 +44,7 @@ protected:
 // public functions
 public:
     Random();
-    ~Random();
+    virtual ~Random();
 
     virtual T get() const = 0;
     virtual T operator()() const final;
