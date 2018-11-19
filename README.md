@@ -50,11 +50,6 @@ stop
 @enduml
 ```
 
-## 疑問
-
-- 通信中の発生源は新たに通信してもいい？
-- 一つの発生源から同時に複数の呼が発生していい？
-
 ## リンク
 
 - [ポワソン分布](https://cpprefjp.github.io/reference/random/poisson_distribution.html)
