@@ -1,38 +1,43 @@
 #ifndef INCLUDED_PACKET_GENERATOR_HPP
 #define INCLUDED_PACKET_GENERATOR_HPP
 
-#define VECTOR_FWD(x_type)  std::vector<x_type, std::allocator<x_type> >
+#include <vector>
 
-// dorward declaration
-namespace std {
-
-    // vector
-    template <class T>
-    class allocator;
-    template <class T, class Allocator>
-    class vector;
-
-}
-// Data
-class Data;
-// Random
-template <class T>
-class Random;
+#include "Data.hpp"
+#include "Random.hpp"
+#include <iostream>
 
 
 //
 // class PacketGenerator
 //
-template <class T>
 class PacketGenerator {
 
-    Random<T>* random;
+    Exponential* exp;
 
 public:
-    PacketGenerator(int);
-    ~PacketGenerator();
+    PacketGenerator(double arg) {
 
-    VECTOR_FWD(Data)&& get(int);
+        this->exp = new Exponential(arg);
+
+    }
+
+    ~PacketGenerator() {
+
+        delete(this->exp);
+
+    }
+
+    std::vector<Data> get(int num, int base) {
+
+        std::vector<Data> data(num);
+        for( auto &x : data ) {
+            x.set(this->exp->get() + base);
+        }
+
+        return std::move(data);
+
+    }
 
 };
 
