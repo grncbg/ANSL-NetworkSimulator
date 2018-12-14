@@ -13,6 +13,15 @@ using namespace std;
 
 Result func(const unsigned int srcs, const double arrival_rate) {
 
+    const unsigned int MAX_CAP = 100'000'000;
+    const unsigned int PACKET_WIDTH = 64'000;
+    const unsigned int MAX_PACKETS = MAX_CAP / PACKET_WIDTH;
+    const unsigned int END_TIME = 1000;
+    unsigned long long calls = 0;
+    unsigned long long lostCalls = 0;
+    unsigned long long packets = 0;
+    const double duration = 180.0;
+
     return Result(0, 0, 0);
 
 }
