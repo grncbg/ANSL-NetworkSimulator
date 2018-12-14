@@ -57,13 +57,21 @@ Result func(const unsigned int srcs, const double arrival_rate) {
 
 }
 
-int main(int argc, char* argv) {
+int main(int argc, char* argv[]) {
 
     const unsigned int ARRIVAL_RATE_MAX = 100;
     const unsigned int ARRIVAL_RATE_MIN = 0;
     const unsigned int ARRIVAL_RATE_POINTS = 1001;
 
     vector<unsigned int> srcs = {1000}; // default
+    if(argc > 0) {
+
+        srcs.resize(argc);
+
+        for(int i = 0; i < argc; i++)
+            srcs[i] = atoi(argv[i + 1]);
+
+    }
 
     for(auto& src : srcs) {
 
