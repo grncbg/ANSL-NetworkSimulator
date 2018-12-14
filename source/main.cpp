@@ -18,4 +18,10 @@ int main() {
 
     unsigned int srcs[] = {1000, 10000};
 
+    for(auto& src : srcs) {
+
+
+
+    }
+
 }
