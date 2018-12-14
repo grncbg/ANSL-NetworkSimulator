@@ -63,7 +63,7 @@ int main(int argc, char* argv) {
     const unsigned int ARRIVAL_RATE_MIN = 0;
     const unsigned int ARRIVAL_RATE_POINTS = 1001;
 
-    vector<unsigned int> srcs = {1000};
+    vector<unsigned int> srcs = {1000}; // default
 
     for(auto& src : srcs) {
 
