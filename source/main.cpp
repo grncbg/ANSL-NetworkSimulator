@@ -32,6 +32,12 @@ Result func(const unsigned int srcs, const double arrival_rate) {
 
         set.erase(Data(time));
 
+        for(unsigned int src = 0; src < srcs; src++) {
+
+
+
+        }
+
     }
 
     Result result(arrival_rate, static_cast<double>(lostCalls)/static_cast<double>(calls), (packets * PACKET_WIDTH)/END_TIME);
