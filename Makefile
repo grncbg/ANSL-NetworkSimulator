@@ -30,4 +30,9 @@ all: clean $(TARGET)
 clean:
 	rm -f $(OBJDIR)/* $(BINDIR)/*
 
+.PHONY: run
+run:
+	mkdir -p data
+	bin/main
+
 -include $(DEPENDS)
