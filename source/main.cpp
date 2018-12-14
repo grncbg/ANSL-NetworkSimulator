@@ -20,7 +20,13 @@ int main() {
 
     for(auto& src : srcs) {
 
+        ofstream ofs("data/" + to_string(src) + ".csv");
 
+        ofs << "arrival_rate, loss, throughput" << endl;
+
+
+
+        ofs.close();
 
     }
 
