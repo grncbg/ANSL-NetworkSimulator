@@ -34,7 +34,17 @@ Result func(const unsigned int srcs, const double arrival_rate) {
 
         for(unsigned int src = 0; src < srcs; src++) {
 
+            int num = poisson();
+            calls += num;
+            if( set.size() + num > MAX_PACKETS ) {
+                lostCalls += set.size() + num - MAX_PACKETS;
+                num = MAX_PACKETS - set.size();
+            }
+            for( auto &x : generator.get(num, time + 1) ) {
 
+                set.insert(x);
+
+            }
 
         }
 
