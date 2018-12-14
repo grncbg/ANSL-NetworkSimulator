@@ -26,7 +26,17 @@ Result func(const unsigned int srcs, const double arrival_rate) {
     PacketGenerator generator(1.0/duration);
     multiset<Data> set;
 
-    return Result(0, 0, 0);
+    for(unsigned int time = 0; time < END_TIME; time++) {
+
+        packets += set.size();
+
+        set.erase(Data(time));
+
+    }
+
+    Result result(arrival_rate, static_cast<double>(lostCalls)/static_cast<double>(calls), (packets * PACKET_WIDTH)/END_TIME);
+
+    return move(result);
 
 }
 
