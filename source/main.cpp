@@ -3,6 +3,7 @@
 #include <iostream>
 #include <set>
 #include <string>
+#include <vector>
 
 #include "Data.hpp"
 #include "PacketGenerator.hpp"
