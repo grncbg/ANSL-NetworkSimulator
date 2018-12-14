@@ -16,7 +16,10 @@ struct Result {
 };
 
 namespace std{
-    class ostream;
+    template<class charT> struct char_traits;
+    template<class CharT, class Traits>
+    class basic_ostream;
+    typedef class basic_ostream<char, char_traits<char>> ostream;
 }
 
 std::ostream& operator << (std::ostream&, const Result&);
