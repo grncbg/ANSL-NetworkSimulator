@@ -10,16 +10,18 @@ SRCDIR   = source
 SOURCES  = $(wildcard $(SRCDIR)/*.cpp)
 OBJECTS  = $(subst $(SRCDIR),$(OBJDIR), $(SOURCES:.cpp=.o))
 DEPENDS  = $(OBJECTS:.o=.d)
+PLOT     = 1000
 
 .PHONY: $(TARGET)
 $(TARGET): $(BINDIR)/$(TARGET);
 $(BINDIR)/$(TARGET): $(OBJECTS) $(LIBS)
+	mkdir -p bin
 	$(COMPILER) -o $@ $^ $(LDFLAGS)
 
 .PHONY: %.o
 %.o: $(OBJDIR)/%.o;
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	@[ -d $(OBJDIR) ]
+	mkdir -p obj
 	$(COMPILER) $(CFLAGS) $(INCLUDE) -o $@ -c $<
 
 .PHONY: all
@@ -27,6 +29,16 @@ all: clean $(TARGET)
 
 .PHONY: clean
 clean:
-	rm -f $(OBJDIR)/* $(BINDIR)/*
+	rm -f $(OBJDIR)/* $(BINDIR)/* graph/*.png data/*.csv
+
+.PHONY: graph
+graph:
+	mkdir -p graph
+	gnuplot -c gnuplot.plt $(PLOT)
+
+.PHONY: run
+run:
+	mkdir -p data
+	bin/main
 
 -include $(DEPENDS)
