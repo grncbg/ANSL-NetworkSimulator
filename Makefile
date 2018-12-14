@@ -10,6 +10,7 @@ SRCDIR   = source
 SOURCES  = $(wildcard $(SRCDIR)/*.cpp)
 OBJECTS  = $(subst $(SRCDIR),$(OBJDIR), $(SOURCES:.cpp=.o))
 DEPENDS  = $(OBJECTS:.o=.d)
+PLOT     = 1000
 
 .PHONY: $(TARGET)
 $(TARGET): $(BINDIR)/$(TARGET);
@@ -28,7 +29,12 @@ all: clean $(TARGET)
 
 .PHONY: clean
 clean:
-	rm -f $(OBJDIR)/* $(BINDIR)/*
+	rm -f $(OBJDIR)/* $(BINDIR)/* graph/*.png data/*.csv
+
+.PHONY: graph
+graph:
+	mkdir -p graph
+	gnuplot -c gnuplot.plt $(PLOT)
 
 .PHONY: run
 run:
