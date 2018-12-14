@@ -14,12 +14,13 @@ DEPENDS  = $(OBJECTS:.o=.d)
 .PHONY: $(TARGET)
 $(TARGET): $(BINDIR)/$(TARGET);
 $(BINDIR)/$(TARGET): $(OBJECTS) $(LIBS)
+	mkdir -p bin
 	$(COMPILER) -o $@ $^ $(LDFLAGS)
 
 .PHONY: %.o
 %.o: $(OBJDIR)/%.o;
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	@[ -d $(OBJDIR) ]
+	mkdir -p obj
 	$(COMPILER) $(CFLAGS) $(INCLUDE) -o $@ -c $<
 
 .PHONY: all
