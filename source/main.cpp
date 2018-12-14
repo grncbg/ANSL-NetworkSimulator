@@ -64,12 +64,12 @@ int main(int argc, char* argv[]) {
     const unsigned int ARRIVAL_RATE_POINTS = 1001;
 
     vector<unsigned int> srcs = {1000}; // default
-    if(argc > 0) {
+    if(argc > 1) {
 
-        srcs.resize(argc);
+        srcs.resize(argc - 1);
 
-        for(int i = 0; i < argc; i++)
-            srcs[i] = atoi(argv[i + 1]);
+        for(int i = 1; i < argc; i++)
+            srcs[i - 1] = atoi(argv[i]);
 
     }
 
