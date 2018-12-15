@@ -3,6 +3,8 @@
 #include <memory>
 #include <vector>
 
+// CommandLineOption<T>
+// Constructor
 template <class T>
 CommandLineOption<T>::CommandLineOption(const int argc, const char** argv) {
     this->argc = argc;
@@ -10,6 +12,7 @@ CommandLineOption<T>::CommandLineOption(const int argc, const char** argv) {
     this->options = new unique_ptr<vector<T>>();
 }
 
+// parse<int>
 template <>
 bool CommandLineOption<int>::parse() const {
     if(argc <= 1) {
