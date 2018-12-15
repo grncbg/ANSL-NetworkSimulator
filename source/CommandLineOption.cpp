@@ -26,6 +26,6 @@ bool CommandLineOption<int>::parse() const {
 }
 
 template <class T>
-const T& CommandLineOption<T>::get(unsigned int index) const {
+const T& CommandLineOption<T>::get(const unsigned int index) const {
     return options->at(index);
 }
