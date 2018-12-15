@@ -25,11 +25,13 @@ bool CommandLineOption<int>::parse() const {
     return 0;
 }
 
+// get
 template <class T>
 const T& CommandLineOption<T>::get(const unsigned int index) const {
     return options->at(index);
 }
 
+// operator[]
 template <class T>
 const T& CommandLineOption<T>::operator[](const unsigned int index) const {
     return this->get(index);
