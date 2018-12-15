@@ -29,3 +29,8 @@ template <class T>
 const T& CommandLineOption<T>::get(const unsigned int index) const {
     return options->at(index);
 }
+
+template <class T>
+const T& CommandLineOption<T>::operator[](const unsigned int index) const {
+    return this->get(index);
+}
