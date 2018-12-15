@@ -1,7 +1,7 @@
 #include "CommandLineOption.hpp"
 
-#include <vector>
 #include <memory>
+#include <vector>
 
 template <class T>
 CommandLineOption<T>::CommandLineOption(const int argc, const char** argv) {
