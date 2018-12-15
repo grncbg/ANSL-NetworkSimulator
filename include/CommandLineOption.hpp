@@ -3,7 +3,9 @@
 
 class CommandLineOption {
 
-
+private:
+    const int argc;
+    const char* argv[];
 
 };
 
