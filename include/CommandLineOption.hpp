@@ -7,6 +7,9 @@ private:
     const int argc;
     const char* argv[];
 
+public:
+    explicit CommandLineOption(const int, const char**)
+
 };
 
 #endif
