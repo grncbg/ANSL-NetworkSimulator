@@ -35,6 +35,7 @@ private:
 
 public:
     explicit CommandLineOption(const int argc, const char** argv);
+    virtual bool parse() const;
 
 };
 
