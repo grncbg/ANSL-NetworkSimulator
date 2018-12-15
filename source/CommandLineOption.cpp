@@ -24,3 +24,8 @@ bool CommandLineOption<int>::parse() const {
     }
     return 0;
 }
+
+template <class T>
+const T& CommandLineOption<T>::get(unsigned int index) const {
+    return options->at(index);
+}
