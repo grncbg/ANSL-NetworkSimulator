@@ -24,9 +24,14 @@ template <class T>
 class CommandLineOption {
 
 private:
+    template <class Type>
+    using vector = std::vector<Type, std::allocator<Type>>;
+    template <class Type>
+    using unique_ptr = std::unique_ptr<Type, std::default_delete<Type>>;
+
     const int argc;
     const char** argv;
-    std::unique_ptr<std::vector<T, std::allocator<T>>, std::default_delete<std::vector<T, std::allocator<T>>>> options;
+    unique_ptr<vector<T>> options;
 
 public:
     explicit CommandLineOption(const int argc, const char** argv);
