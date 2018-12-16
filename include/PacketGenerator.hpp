@@ -6,6 +6,7 @@
 #include "Data.hpp"
 #include "Random.hpp"
 #include <iostream>
+#include <memory>
 
 
 //
