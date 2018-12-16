@@ -39,7 +39,7 @@ Result func(const unsigned int srcs, const double arrival_rate) {
 
         for(unsigned int src = 0; src < srcs; src++) {
 
-            int num = poisson();
+            int num = min(poisson(), 1);
             calls += num;
             if( set.size() + num > MAX_PACKETS ) {
                 lostCalls += set.size() + num - MAX_PACKETS;
