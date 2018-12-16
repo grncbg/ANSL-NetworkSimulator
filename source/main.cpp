@@ -55,7 +55,7 @@ Result func(const unsigned int srcs, const double arrival_rate) {
             }
 
             data[src] = generator.get(time + 1);
-            set.insert(*data[src]);
+            set.insert(*(data[src]));
 
         }
 
