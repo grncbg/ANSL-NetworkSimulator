@@ -5,8 +5,9 @@ set y2label "呼損率"
 set ylabel "スループット[Mbps]"
 
 set datafile separator ","
-set y2range [0:1]
+#set y2range [0:1]
 set y2tics
+set logscale y2 10
 set yrange [0:100]
 
 set terminal png font "MigMix 2M"
