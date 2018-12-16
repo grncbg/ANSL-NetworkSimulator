@@ -68,7 +68,11 @@ int main(int argc, char* argv[]) {
     CommandLineOption<unsigned int> options(argc, argv);
     options.parse();
 
-    unique_ptr<vector<unsigned int>> srcs = options.move(); // default
+    unique_ptr<vector<unsigned int>> srcs = options.move();
+    if(srcs == nullptr) {
+        cerr << "Require arguments" << endl;
+        return 0;
+    }
 
     for(auto& src : (*srcs)) {
 
