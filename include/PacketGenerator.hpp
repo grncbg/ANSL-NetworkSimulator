@@ -29,7 +29,7 @@ public:
 
     }
 
-    std::unique_ptr<Data>&& get(int base) {
+    std::unique_ptr<Data> get(int base) {
 
         std::unique_ptr<Data> data(new Data);
         data->set(this->exp->get() + base);
