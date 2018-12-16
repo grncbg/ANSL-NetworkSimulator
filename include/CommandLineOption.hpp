@@ -42,4 +42,6 @@ public:
 
 };
 
+template class CommandLineOption<unsigned int>;
+
 #endif
