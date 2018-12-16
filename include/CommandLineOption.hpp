@@ -30,11 +30,11 @@ private:
     using unique_ptr = std::unique_ptr<Type, std::default_delete<Type>>;
 
     const int argc;
-    const char** argv;
+    char** argv;
     unique_ptr<vector<T>> options;
 
 public:
-    explicit CommandLineOption(int argc, char** argv);
+    explicit CommandLineOption(int argc, char** argv) : argc(argc), argv(argv), options(nullptr) {}
     virtual bool parse();
     virtual const T& get(unsigned int index) const;
     virtual const T& operator[](unsigned int index) const;
