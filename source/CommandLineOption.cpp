@@ -3,6 +3,8 @@
 #include <memory>
 #include <vector>
 
+#include "CommandLineOption.hpp"
+
 // CommandLineOption<T>
 // Constructor
 template <class T>
