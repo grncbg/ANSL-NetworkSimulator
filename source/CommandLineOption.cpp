@@ -3,15 +3,6 @@
 
 #include "CommandLineOption.hpp"
 
-// CommandLineOption<T>
-// Constructor
-template <class T>
-CommandLineOption<T>::CommandLineOption(int argc, char** argv) {
-    this->argc = argc;
-    this->argv = argv;
-    this->options = nullptr;
-}
-
 // parse<int>
 template <>
 bool CommandLineOption<unsigned int>::parse() {
