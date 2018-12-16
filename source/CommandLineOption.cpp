@@ -5,15 +5,15 @@
 
 // parse<int>
 template <>
-bool CommandLineOption<unsigned int>::parse() {
+CommandLineOption<unsigned int>& CommandLineOption<unsigned int>::parse() {
     if(argc <= 1) {
-        return 0;
+        return *this;
     }
     options.reset(new std::vector<unsigned int>(argc - 1));
     for(unsigned int i = 0; i < options->size(); i++){
         (*options)[i] = atoi(argv[i + 1]);
     }
-    return 0;
+    return *this;
 }
 
 // get

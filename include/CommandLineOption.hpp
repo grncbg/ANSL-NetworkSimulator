@@ -35,7 +35,7 @@ private:
 
 public:
     explicit CommandLineOption(int argc, char** argv) : argc(argc), argv(argv), options(nullptr) {}
-    virtual bool parse();
+    virtual CommandLineOption<T>& parse();
     virtual const T& get(unsigned int index) const;
     virtual const T& operator[](unsigned int index) const;
     virtual unique_ptr<vector<T>>&& move();
