@@ -25,6 +25,8 @@ Result func(const unsigned int srcs, const double arrival_rate) {
     unsigned long long packets = 0;
     const double duration = 180.0;
 
+    bool line[srcs];
+
     Poisson poisson(arrival_rate/srcs);
     PacketGenerator generator(1.0/duration);
     multiset<Data> set;
