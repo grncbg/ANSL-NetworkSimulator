@@ -39,6 +39,12 @@ Result func(const unsigned int srcs, const double arrival_rate) {
 
         for(unsigned int src = 0; src < srcs; src++) {
 
+            if( data[src] != nullptr ) {
+                if(data[src]->get() > time)
+                    continue;
+                data[src].reset(nullptr);
+            }
+
             if(poisson() < 1)
                 continue;
 
