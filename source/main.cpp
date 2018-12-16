@@ -39,14 +39,16 @@ Result func(const unsigned int srcs, const double arrival_rate) {
 
         for(unsigned int src = 0; src < srcs; src++) {
 
-            int num = min(poisson(), 1);
-            calls += num;
-            if( set.size() + num > MAX_PACKETS ) {
+            if(poisson() < 1)
+                continue;
+
+            calls++;
+            if( set.size() + 1 > MAX_PACKETS ) {
                 lostCalls++;
-                num = 0;
+                continue;
             }
-            if( num )
-                set.insert(generator.get(time + 1));
+
+            set.insert(generator.get(time + 1));
 
         }
 
