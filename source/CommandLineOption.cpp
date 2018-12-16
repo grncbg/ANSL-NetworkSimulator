@@ -36,3 +36,9 @@ template <class T>
 const T& CommandLineOption<T>::operator[](const unsigned int index) const {
     return this->get(index);
 }
+
+// move
+template <class T>
+std::unique_ptr<std::vector<T>>&& CommandLineOption<T>::move() {
+    return std::move(options);
+}

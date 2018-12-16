@@ -38,6 +38,7 @@ public:
     virtual bool parse();
     virtual const T& get(const unsigned int index) const;
     virtual const T& operator[](const unsigned int index) const;
+    virtual unique_ptr<vector<T>>&& move();
 
 };
 
