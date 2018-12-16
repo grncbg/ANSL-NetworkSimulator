@@ -6,6 +6,7 @@
 #include "Data.hpp"
 #include "Random.hpp"
 #include <iostream>
+#include <memory>
 
 
 //
@@ -28,12 +29,10 @@ public:
 
     }
 
-    std::vector<Data> get(int num, int base) {
+    std::unique_ptr<Data> get(int base) {
 
-        std::vector<Data> data(num);
-        for( auto &x : data ) {
-            x.set(this->exp->get() + base);
-        }
+        std::unique_ptr<Data> data(new Data);
+        data->set(this->exp->get() + base);
 
         return std::move(data);
 

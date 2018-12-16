@@ -25,6 +25,8 @@ Result func(const unsigned int srcs, const double arrival_rate) {
     unsigned long long packets = 0;
     const double duration = 180.0;
 
+    unique_ptr<Data> data[srcs] = {0};
+
     Poisson poisson(arrival_rate/srcs);
     PacketGenerator generator(1.0/duration);
     multiset<Data> set;
@@ -37,17 +39,23 @@ Result func(const unsigned int srcs, const double arrival_rate) {
 
         for(unsigned int src = 0; src < srcs; src++) {
 
-            int num = poisson();
-            calls += num;
-            if( set.size() + num > MAX_PACKETS ) {
-                lostCalls += set.size() + num - MAX_PACKETS;
-                num = MAX_PACKETS - set.size();
+            if( data[src] != nullptr ) {
+                if(data[src]->get() > time)
+                    continue;
+                data[src].reset(nullptr);
             }
-            for( auto &x : generator.get(num, time + 1) ) {
 
-                set.insert(x);
+            if(poisson() < 1)
+                continue;
 
+            calls++;
+            if( set.size() + 1 > MAX_PACKETS ) {
+                lostCalls++;
+                continue;
             }
+
+            data[src] = generator.get(time + 1);
+            set.insert(*(data[src]));
 
         }
 
