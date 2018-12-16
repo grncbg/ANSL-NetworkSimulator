@@ -45,11 +45,8 @@ Result func(const unsigned int srcs, const double arrival_rate) {
                 lostCalls += set.size() + num - MAX_PACKETS;
                 num = MAX_PACKETS - set.size();
             }
-            for( auto &x : generator.get(num, time + 1) ) {
 
-                set.insert(x);
-
-            }
+            set.insert(generator.get(time + 1));
 
         }
 
