@@ -42,11 +42,11 @@ Result func(const unsigned int srcs, const double arrival_rate) {
             int num = min(poisson(), 1);
             calls += num;
             if( set.size() + num > MAX_PACKETS ) {
-                lostCalls += set.size() + num - MAX_PACKETS;
-                num = MAX_PACKETS - set.size();
+                lostCalls++;
+                num = 0;
             }
             if( num )
-            set.insert(generator.get(time + 1));
+                set.insert(generator.get(time + 1));
 
         }
 
