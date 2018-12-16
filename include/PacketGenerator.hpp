@@ -28,12 +28,10 @@ public:
 
     }
 
-    std::vector<Data> get(int num, int base) {
+    Data&& get(int base) {
 
-        std::vector<Data> data(num);
-        for( auto &x : data ) {
-            x.set(this->exp->get() + base);
-        }
+        Data data;
+        data.set(this->exp->get() + base);
 
         return std::move(data);
 
