@@ -3,7 +3,10 @@
 #include <iostream>
 #include <set>
 #include <string>
+#include <vector>
+#include <memory>
 
+#include "CommandLineOption.hpp"
 #include "Data.hpp"
 #include "PacketGenerator.hpp"
 #include "Random.hpp"
@@ -56,15 +59,20 @@ Result func(const unsigned int srcs, const double arrival_rate) {
 
 }
 
-int main() {
+int main(int argc, char* argv[]) {
 
     const unsigned int ARRIVAL_RATE_MAX = 100;
     const unsigned int ARRIVAL_RATE_MIN = 0;
     const unsigned int ARRIVAL_RATE_POINTS = 1001;
 
-    unsigned int srcs[] = {1000, 10000};
+    CommandLineOption<unsigned int> options(argc, argv);
+    unique_ptr<vector<unsigned int>> srcs = options.parse().move();
+    if(srcs == nullptr) {
+        cerr << "Require arguments" << endl;
+        return 0;
+    }
 
-    for(auto& src : srcs) {
+    for(auto& src : (*srcs)) {
 
         ofstream ofs("data/" + to_string(src) + ".csv");
 

@@ -11,6 +11,7 @@ SOURCES  = $(wildcard $(SRCDIR)/*.cpp)
 OBJECTS  = $(subst $(SRCDIR),$(OBJDIR), $(SOURCES:.cpp=.o))
 DEPENDS  = $(OBJECTS:.o=.d)
 PLOT     = 1000
+RUN      = 1000
 
 .PHONY: $(TARGET)
 $(TARGET): $(BINDIR)/$(TARGET);
@@ -39,6 +40,6 @@ graph:
 .PHONY: run
 run:
 	mkdir -p data
-	bin/main
+	bin/main $(RUN)
 
 -include $(DEPENDS)
