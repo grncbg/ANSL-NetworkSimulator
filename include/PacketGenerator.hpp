@@ -29,10 +29,10 @@ public:
 
     }
 
-    Data&& get(int base) {
+    std::unique_ptr<Data>&& get(int base) {
 
-        Data data;
-        data.set(this->exp->get() + base);
+        std::unique_ptr<Data> data(new Data);
+        data->set(this->exp->get() + base);
 
         return std::move(data);
 
