@@ -4,13 +4,13 @@
 class Data {
 
 private:
-    int end_time;
+    unsigned int end_time;
 
 public:
     Data() = default;
-    Data(int);
-    void set(int);
-    int get(){return end_time;};
+    Data(unsigned int);
+    void set(unsigned int);
+    unsigned int get(){return end_time;};
 
     bool operator<(const Data&) const;
     bool operator==(const Data& data) const { return this->end_time == data.end_time ;};

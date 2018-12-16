@@ -1,12 +1,12 @@
 #include "Data.hpp"
 
-Data::Data(int time) {
+Data::Data(unsigned int time) {
 
     this->end_time = time;
 
 }
 
-void Data::set(int time) {
+void Data::set(unsigned int time) {
 
     this->end_time = time;
 
