@@ -34,10 +34,10 @@ private:
     unique_ptr<vector<T>> options;
 
 public:
-    explicit CommandLineOption(const int argc, const char** argv);
+    explicit CommandLineOption(int argc, char** argv);
     virtual bool parse();
-    virtual const T& get(const unsigned int index) const;
-    virtual const T& operator[](const unsigned int index) const;
+    virtual const T& get(unsigned int index) const;
+    virtual const T& operator[](unsigned int index) const;
     virtual unique_ptr<vector<T>>&& move();
 
 };
