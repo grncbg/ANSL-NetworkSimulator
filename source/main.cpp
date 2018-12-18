@@ -16,15 +16,15 @@ using namespace std;
 
 Result func(const unsigned int srcs, const double arrival_rate) {
 
-    const unsigned int MAX_CAP = 100'000'000;
-    const unsigned int PACKET_WIDTH = 64'000;
-    const unsigned int MAX_PACKETS = MAX_CAP / PACKET_WIDTH;
-    const unsigned int START_TIME = 1000;
-    const unsigned int END_TIME = 2000;
+    constexpr unsigned int MAX_CAP = 100'000'000;
+    constexpr unsigned int PACKET_WIDTH = 64'000;
+    constexpr unsigned int MAX_PACKETS = MAX_CAP / PACKET_WIDTH;
+    constexpr unsigned int START_TIME = 1000;
+    constexpr unsigned int END_TIME = 2000;
     unsigned long long calls = 0;
     unsigned long long lostCalls = 0;
     unsigned long long packets = 0;
-    const double duration = 180.0;
+    constexpr double duration = 180.0;
 
     unique_ptr<Data> data[srcs] = {0};
 
@@ -74,9 +74,9 @@ Result func(const unsigned int srcs, const double arrival_rate) {
 
 int main(int argc, char* argv[]) {
 
-    const unsigned int ARRIVAL_RATE_MAX = 30;
-    const unsigned int ARRIVAL_RATE_MIN = 0;
-    const unsigned int ARRIVAL_RATE_POINTS = 1001;
+    constexpr unsigned int ARRIVAL_RATE_MAX = 30;
+    constexpr unsigned int ARRIVAL_RATE_MIN = 0;
+    constexpr unsigned int ARRIVAL_RATE_POINTS = 1001;
 
     CommandLineOption<unsigned int> options(argc, argv);
     unique_ptr<vector<unsigned int>> srcs = options.parse().move();
