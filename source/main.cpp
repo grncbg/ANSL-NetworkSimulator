@@ -19,7 +19,8 @@ Result func(const unsigned int srcs, const double arrival_rate) {
     const unsigned int MAX_CAP = 100'000'000;
     const unsigned int PACKET_WIDTH = 64'000;
     const unsigned int MAX_PACKETS = MAX_CAP / PACKET_WIDTH;
-    const unsigned int END_TIME = 1000;
+    const unsigned int START_TIME = 1000;
+    const unsigned int END_TIME = 2000;
     unsigned long long calls = 0;
     unsigned long long lostCalls = 0;
     unsigned long long packets = 0;
@@ -33,7 +34,8 @@ Result func(const unsigned int srcs, const double arrival_rate) {
 
     for(unsigned int time = 0; time < END_TIME; time++) {
 
-        packets += set.size();
+        if (time >= START_TIME)
+            packets += set.size();
 
         set.erase(Data(time));
 
@@ -48,9 +50,12 @@ Result func(const unsigned int srcs, const double arrival_rate) {
             if(poisson() < 1)
                 continue;
 
-            calls++;
+            if (time >= START_TIME)
+                calls++;
+
             if( set.size() + 1 > MAX_PACKETS ) {
-                lostCalls++;
+                if (time >= START_TIME)
+                    lostCalls++;
                 continue;
             }
 
@@ -61,7 +66,7 @@ Result func(const unsigned int srcs, const double arrival_rate) {
 
     }
 
-    Result result(arrival_rate, static_cast<double>(lostCalls)/static_cast<double>(calls), (packets * PACKET_WIDTH)/END_TIME);
+    Result result(arrival_rate, static_cast<double>(lostCalls)/static_cast<double>(calls), (packets * PACKET_WIDTH)/(END_TIME-START_TIME));
 
     return move(result);
 
