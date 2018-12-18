@@ -2,7 +2,7 @@
 #define INCLUDED_RANDOM_HPP
 
 // dorward declaration
-namespace std {
+namespace boost::random {
 
     // mersenne_twister
     typedef __SIZE_TYPE__ size_t;
@@ -22,7 +22,7 @@ namespace std {
     >;
 
     // poisson_distribution
-    template <class IntType>
+    template <class IntType, class RealType>
     class poisson_distribution;
 
     // exponential_distribution
@@ -39,7 +39,7 @@ class Random {
 
 // protected members
 protected:
-    std::mt19937_64* engine;
+    boost::random::mt19937_64* engine;
 
 // public functions
 public:
@@ -59,7 +59,7 @@ class Poisson : public Random<int> {
 
 // private members
 private:
-    std::poisson_distribution<int>* poisson;
+    boost::random::poisson_distribution<int, double>* poisson;
 
 // public functions
 public:
@@ -78,7 +78,7 @@ class Exponential : public Random<double> {
 
 // private members
 private:
-    std::exponential_distribution<double>* exponential;
+    boost::random::exponential_distribution<double>* exponential;
 
 // public functions
 public:
