@@ -1,6 +1,6 @@
 COMPILER = g++
-CFLAGS   = -g -Wall -O2 -MMD -MP -std=c++1z
-LDFLAGS  =
+CFLAGS   = -g -Wall -O2 -MMD -MP -std=c++1z -fopenmp
+LDFLAGS  = -fopenmp
 LIBS     =
 INCLUDE  = -Iinclude
 BINDIR   = bin
