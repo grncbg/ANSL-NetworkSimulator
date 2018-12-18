@@ -80,19 +80,24 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
+    vector<Result> result(ARRIVAL_RATE_POINTS);
+
     for(auto& src : (*srcs)) {
 
         ofstream ofs("data/" + to_string(src) + ".csv");
 
         ofs << "arrival_rate, loss, throughput" << endl;
 
+        #pragma omp parallel for schedule(guided)
         for( unsigned int i = 0; i < ARRIVAL_RATE_POINTS; i++ ) {
             double arrival_rate = static_cast<double>(ARRIVAL_RATE_MAX - ARRIVAL_RATE_MIN) / static_cast<double>(ARRIVAL_RATE_POINTS) * (i + 1);
 
-            auto tmp =  func(src, arrival_rate);
+            result[i] =  func(src, arrival_rate);
 
-            ofs << tmp << "\n";
         }
+
+        for(auto& x : result)
+            ofs << x << endl;
 
         ofs.close();
 

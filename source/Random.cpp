@@ -1,6 +1,7 @@
 #include "Random.hpp"
 
-#include <random>
+#include <boost/random.hpp>
+#include <boost/random/random_device.hpp>
 
 //
 // class Random
@@ -9,8 +10,8 @@
 template <class T>
 Random<T>::Random() {
 
-    std::random_device seed_gen;
-    this->engine = new std::mt19937_64(seed_gen());
+    boost::random::random_device seed_gen;
+    this->engine = new boost::random::mt19937_64(seed_gen());
 
 }
 
@@ -34,7 +35,7 @@ T Random<T>::operator()() const {
 
 Poisson::Poisson(double arg) {
 
-    this->poisson = new std::poisson_distribution<int>(arg);
+    this->poisson = new boost::random::poisson_distribution<int, double>(arg);
 
 }
 
@@ -57,7 +58,7 @@ int Poisson::get() const {
 
 Exponential::Exponential(double arg) {
 
-    this->exponential = new std::exponential_distribution<double>(arg);
+    this->exponential = new boost::random::exponential_distribution<double>(arg);
 
 }
 
