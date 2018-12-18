@@ -86,12 +86,17 @@ int main(int argc, char* argv[]) {
 
         ofs << "arrival_rate, loss, throughput" << endl;
 
+        #pragma omp parallel for
         for( unsigned int i = 0; i < ARRIVAL_RATE_POINTS; i++ ) {
             double arrival_rate = static_cast<double>(ARRIVAL_RATE_MAX - ARRIVAL_RATE_MIN) / static_cast<double>(ARRIVAL_RATE_POINTS) * (i + 1);
 
             auto tmp =  func(src, arrival_rate);
 
-            ofs << tmp << "\n";
+
+            #pragma omp ordered
+            {
+                ofs << tmp << "\n";
+            }
         }
 
         ofs.close();
