@@ -79,7 +79,7 @@ int main(int argc, char* argv[]) {
     constexpr unsigned int ARRIVAL_RATE_POINTS = 1001;
 
     CommandLineOption<unsigned int> options(argc, argv);
-    unique_ptr<vector<unsigned int>> srcs = options.parse().move();
+    const unique_ptr<vector<unsigned int>> srcs = options.parse().move();
     if(srcs == nullptr) {
         cerr << "Require arguments" << endl;
         return 0;
