@@ -30,17 +30,15 @@ repeat
     :multisetから現在の時刻のものを削除;
 
     while (発生源の数だけループ)
-
-        :n = 平均λ/発生源の数のポワソン分布;
-        while(n個のループ)
+        if (通信していない) then (true)
+            :n = min(平均λ/発生源の数のポワソン分布, 1);
             if (Queueのサイズが制限内) then (true)
                 :継続時間を指数分布で設定;
                 :insert(現在時刻+継続時間);
             else (false)
                 :呼損;
             endif
-        endwhile
-
+        endif
     endwhile
 
 repeat while (設定時間内)
