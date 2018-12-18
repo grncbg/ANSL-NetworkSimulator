@@ -7,6 +7,7 @@ set ylabel "スループット[Mbps]"
 set datafile separator ","
 set y2tics
 set logscale y2 10
+# set y2range[0:1]
 set yrange [0:100]
 
 # linux
