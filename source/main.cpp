@@ -11,6 +11,7 @@
 #include "PacketGenerator.hpp"
 #include "Random.hpp"
 #include "Result.hpp"
+#include "File.hpp"
 
 using namespace std;
 
