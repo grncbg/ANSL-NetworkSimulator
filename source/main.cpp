@@ -74,7 +74,7 @@ Result func(const unsigned int srcs, const double arrival_rate) {
 
 int main(int argc, char* argv[]) {
 
-    const unsigned int ARRIVAL_RATE_MAX = 100;
+    const unsigned int ARRIVAL_RATE_MAX = 30;
     const unsigned int ARRIVAL_RATE_MIN = 0;
     const unsigned int ARRIVAL_RATE_POINTS = 1001;
 
