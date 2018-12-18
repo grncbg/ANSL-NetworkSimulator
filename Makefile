@@ -1,6 +1,6 @@
 COMPILER = g++
 CFLAGS   = -g -Wall -O2 -MMD -MP -std=c++1z -fopenmp
-LDFLAGS  = -fopenmp
+LDFLAGS  = -fopenmp -lboost_random
 LIBS     =
 INCLUDE  = -Iinclude
 BINDIR   = bin
