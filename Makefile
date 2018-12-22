@@ -10,8 +10,8 @@ SRCDIR   = source
 SOURCES  = $(wildcard $(SRCDIR)/*.cpp)
 OBJECTS  = $(subst $(SRCDIR),$(OBJDIR), $(SOURCES:.cpp=.o))
 DEPENDS  = $(OBJECTS:.o=.d)
-PLOT     = 1000
-RUN      = 1000
+PLOT     = 10000
+RUN      = 10000
 
 .PHONY: $(TARGET)
 $(TARGET): $(BINDIR)/$(TARGET);
